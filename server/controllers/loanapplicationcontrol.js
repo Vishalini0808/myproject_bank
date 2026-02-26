@@ -26,4 +26,5 @@ const createLoanApp = async(req,res) => {
 
 };
 
+export default createLoanApp;
 

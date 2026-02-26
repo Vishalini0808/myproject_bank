@@ -8,6 +8,7 @@ import employeeRoutes from "./routes/employeeRoutes.js"
 import customerRoutes from "./routes/customerRoutes.js"
 import branchRoutes from "./routes/branchRoutes.js"
 import loanApplicationRoutes from "./routes/loanApplicationRoutes.js"
+import loanTypeRoutes from "./routes/loanTypeRoutes.js"
 
 dotenv.config();
 
@@ -24,7 +25,9 @@ app.use("/api/admin",adminRoutepage);
 app.use("/api/employee", employeeRoutes);
 app.use("/api/customer",customerRoutes)
 app.use("/api/branch",branchRoutes)
-app.use("/api/loanapp",loanApplicationRoutes)
+app.use("/api/loanapp",loanApplicationRoutes);
+app.use("/api/loantype",loanTypeRoutes)
+
 
 
 const PORT = process.env.PORT

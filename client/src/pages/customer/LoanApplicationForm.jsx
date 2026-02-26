@@ -22,12 +22,13 @@ const CustomerApplyLoan = () => {
 
   const fetchLoanTypes = async () => {
     try {
-      const res = await api.get("/loanapp/loantypes");    // /api/loanapp/loantypes
+      const res = await api.get("/loantype/getlt");    // /api/loantype/getlt
       setLoanTypes(res.data.loanTypes);
     } catch {
       alert("Failed to load loan types");
     }
   };
+
 
   const fetchBranches = async () => {
     try {

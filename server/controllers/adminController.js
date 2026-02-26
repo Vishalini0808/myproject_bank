@@ -1,5 +1,6 @@
 import User1 from "../models/userSchema.js";
 import Branch1 from "../models/branchSchema.js";
+import LoanType1 from "../models/loanTypeSchema.js";
 import bcrypt from "bcryptjs";
 
 
@@ -69,5 +70,35 @@ export const createBranch = async (req, res) => {
 
   } catch (error) {
     res.status(500).json({ message: "Failed to create branch" });
+  }
+};
+
+
+export const createLoanType = async (req,res) => {
+
+  try {
+
+    const { name, maxAmount, baseInterestRate ,tenureYears } = req.body;
+
+    const existingLoantype = await LoanType1.findOne( {name}) ;
+
+    if(existingLoantype) {
+      return res.status(400).json({ message: "LoanType already exists" });
+    }
+
+    const loantype = await LoanType1.create({
+       name,
+      maxAmount,
+      baseInterestRate,
+      tenureYears
+    });
+
+    res.status(201).json ({
+      message : "Loan Type Created Successfully",
+      loantype
+    })
+    
+  } catch (error) {
+    res.status(500).json({ message: "Failed to create loan Type" });
   }
 };
