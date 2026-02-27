@@ -23,7 +23,6 @@ const Navbar = () => {
           <span className="text-lg font-semibold">CapitalTrust Bank</span>
         </Link>
 
-        {/* Links */}
         <div className="flex items-center gap-6 text-white font-medium">
           
           {!token && (
@@ -46,6 +45,9 @@ const Navbar = () => {
 
           {token && role === "employee" && (
             <>
+              <Link to="/" className="hover:text-gray-200">
+                Home
+              </Link>
               <Link to="/employee/dashboard" className="hover:text-gray-200">
                 Dashboard
               </Link>
@@ -57,14 +59,20 @@ const Navbar = () => {
 
           {token && role === "admin" && (
             <>
+              <Link to="/" className="hover:text-gray-200">
+                Home
+              </Link>
               <Link to="/admin/dashboard" className="hover:text-gray-200">
                 Dashboard
               </Link>
-              <Link to="/admin/add-branch" className="hover:text-gray-200">
+              <Link to="/admin/branches" className="hover:text-gray-200">
                 Add Branch
               </Link>
-              <Link to="/admin/add-employee" className="hover:text-gray-200">
+              <Link to="/admin/employees" className="hover:text-gray-200">
                 Add Employee
+              </Link>
+              <Link to="/admin/loan-types" className="hover:text-gray-200">
+                Add Loan-Type
               </Link>
             </>
           )}

@@ -52,7 +52,7 @@ const CustomerApplyLoan = () => {
       data.append("address", form.address);
       if (form.proof) data.append("proof", form.proof);
 
-      await api.post("/loanapp/applyloan", data, {                    //  /api/loanapp/applyloan
+      await api.post("/loanapp/apply-loan", data, {                    //  /api/loanapp/apply-loan
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -67,8 +67,9 @@ const CustomerApplyLoan = () => {
         
       });
     } catch (err) {
-      alert( "Failed to apply for loan");
-    }
+  console.log(err.response?.data || err.message);
+  alert(err.response?.data?.message || "Failed to apply for loan");
+}
   };
 
   return (

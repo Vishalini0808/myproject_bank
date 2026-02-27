@@ -3,14 +3,7 @@
 // import Branch1 from "../models/branchSchema.js";
 // import Account1 from "../models/bankAccountSchema.js";
 
-// // export const getAllLoanTypes = async (req, res) => {
-// //   try {
-// //     const loanTypes = await LoanType1.find();
-// //     res.json({ loanTypes });
-// //   } catch (error) {
-// //     res.status(500).json({ message: "Failed to fetch loan types" });
-// //   }
-// // };
+
 
 
 

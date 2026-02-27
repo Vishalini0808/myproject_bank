@@ -1,6 +1,6 @@
 import LoanType1 from "../models/loanTypeSchema.js"
 
-const getAllLoanTypes = async(res) => {
+const getAllLoanTypes = async(req,res) => {
 
     try {
         const loanTypes = await LoanType1.find();

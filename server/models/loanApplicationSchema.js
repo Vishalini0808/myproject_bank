@@ -16,7 +16,7 @@ const loanApplicationSchema = new mongoose.Schema({
     type: String, 
     required: true },
   requestedAmount: { 
-    type: Number, 
+    type:String, 
     required: true },
   address: { 
     type: String, 
