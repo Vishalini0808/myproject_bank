@@ -25,6 +25,21 @@ const userSchema = new mongoose.Schema({
         enum: ["admin","employee","customer"],
         required : true
     },
+    cibilScore: {
+        type: Number,
+        default: function () {
+        return Math.floor(Math.random() * (850 - 600 + 1)) + 600;
+    }
+},
+
+    creditHistory: {
+        type: String,
+        enum: ["GOOD", "AVERAGE", "POOR"],
+        default: function () {
+        const statuses = ["GOOD", "AVERAGE", "POOR"];
+        return statuses[Math.floor(Math.random() * statuses.length)];
+    }
+},
 
     // employees ku
     employeeRole : String,

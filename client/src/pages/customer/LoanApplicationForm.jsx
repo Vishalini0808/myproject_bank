@@ -11,6 +11,7 @@ const CustomerApplyLoan = () => {
     loanType: "",
     branch: "",
     requestedAmount: "",
+    monthlyIncome:"",
     address: "",
     proof: null,
   });
@@ -39,6 +40,7 @@ const CustomerApplyLoan = () => {
     }
   };
 
+ 
   const handleSubmit = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -49,6 +51,7 @@ const CustomerApplyLoan = () => {
       data.append("loanType", form.loanType);
       data.append("branch", form.branch);
       data.append("requestedAmount", form.requestedAmount);
+      data.append("monthlyIncome",form.monthlyIncome);
       data.append("address", form.address);
       if (form.proof) data.append("proof", form.proof);
 
@@ -57,11 +60,13 @@ const CustomerApplyLoan = () => {
       });
 
       alert("Loan application submitted!");
+
       setForm({
         accountnumber: "",
         loanType: "",
         branch: "",
         requestedAmount: "",
+        monthlyIncome:"",
         address: "",
         proof: null,
         
@@ -134,6 +139,16 @@ const CustomerApplyLoan = () => {
               onChange={(e) =>
                 setForm({ ...form, requestedAmount: e.target.value })
               }
+            />
+
+            <input
+            placeholder="Monthly Income"
+            type="number"
+            className="w-full border border-gray-300 px-4 py-3 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-teal-500"
+            value={form.monthlyIncome}
+            onChange={ (e)=>
+              setForm ({...form, monthlyIncome : e.target.value})
+            }
             />
 
             <input

@@ -8,7 +8,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
-    navigate("/login");
+    navigate("/");
   };
 
   return (
@@ -34,12 +34,16 @@ const Navbar = () => {
 
           {token && role === "customer" && (
             <>
+              <Link to="/" className="hover:text-gray-200">
+                Home
+              </Link>
               <Link to="/customer/dashboard" className="hover:text-gray-200">
                 Dashboard
               </Link>
               <Link to="/customer/add-account" className="hover:text-gray-200">
                 Add Account
               </Link>
+              
             </>
           )}
 
@@ -51,9 +55,9 @@ const Navbar = () => {
               <Link to="/employee/dashboard" className="hover:text-gray-200">
                 Dashboard
               </Link>
-              <Link to="/employee/customers" className="hover:text-gray-200">
+              {/* <Link to="/employee/customers" className="hover:text-gray-200">
                 Customers
-              </Link>
+              </Link> */}
             </>
           )}
 

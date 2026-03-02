@@ -16,11 +16,14 @@ const loanApplicationSchema = new mongoose.Schema({
     type: String, 
     required: true },
   requestedAmount: { 
-    type:String, 
+    type: Number, 
     required: true },
   address: { 
     type: String, 
     required: true },
+  monthlyIncome: {
+    type: Number,
+    required: true},
   status: { 
     type: String, 
     enum: ["PENDING", "APPROVED", "REJECTED"], 

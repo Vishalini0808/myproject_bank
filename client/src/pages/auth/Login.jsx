@@ -9,14 +9,14 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const res = await api.post("/auth/login", { email, password });
+      const res = await api.post("/auth/login", { email, password });       // api/auth/login
 
       const { token, role } = res.data;
       localStorage.setItem("token", token);
       localStorage.setItem("role", role);
 
       // role-based routing
-      if (role.toLowerCase() === "customer") navigate("/customer/dashboard");
+      if (role.toLowerCase() === "customer") navigate("/");
       else if (role.toLowerCase() === "employee") navigate("/employee/dashboard");
       else if (role.toLowerCase() === "admin") navigate("/admin/dashboard");
     } catch (err) {
@@ -27,7 +27,7 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        {/* Branding */}
+        
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-3">
             <div className="w-12 h-12 bg-linear-to-br from-teal-600 to-blue-600 rounded-xl flex items-center justify-center shadow-md">
@@ -42,7 +42,7 @@ const Login = () => {
           </div>
         </div>
 
-        {/* Login Card */}
+        
         <div className="bg-white rounded-lg shadow-md border border-gray-200">
           <div className="p-6 bg-linear-to-r from-teal-600 to-blue-600 rounded-t-lg">
             <h2 className="text-lg font-semibold text-white text-center">Login to Your Account</h2>

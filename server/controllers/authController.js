@@ -10,7 +10,7 @@ export const registerCustomer = async (req, res) => {
     const {
       fullName,dob,gender,phone,email,address,password} = req.body;
 
-      console.log("hi");
+      // console.log("hi");
       
 
     const existingUser = await User.findOne({ email });
@@ -45,7 +45,8 @@ export const registerCustomer = async (req, res) => {
 export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-console.log("asd")
+    // console.log("asd")
+
     const user = await User.findOne({ email });
     if (!user)
       return res.status(400).json({ message: "User not found" });
